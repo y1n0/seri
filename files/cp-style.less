@@ -1,0 +1,161 @@
+@import '../templates/style.css';
+.lang(@d, @f) {
+	direction: @d;
+	font-family: @f;
+}
+
+@dir:;
+
+.textbox {
+	background: white;
+	border: 1px solid black;
+	box-shadow: 2px 1px 1px grey;
+}
+
+.secs:not(:target) {
+	display: none;
+}
+
+#container {
+	margin: auto;
+	width: 1000px;
+}
+
+
+#cp-menu {
+	.lang(ltr, 'news cycle');
+	width: 200px;
+	float: left;
+	margin: 0px 50px;
+	ul {
+		.textbox;
+		background: none;
+		display: block;
+		list-style: none;
+		padding: 0px;
+		font-size: large;
+		li {
+			a {display: block;}
+			height: 40px;
+			background: white;
+			margin-bottom: 2px;
+			box-sizing: border-box;
+			padding: 5px;
+			&:hover {
+			font-weight: bold;
+			background: #F2F2F2;
+			}
+		}
+	}
+}
+#cp-cont {
+	direction: @dir;
+	padding-bottom: 50px;
+	float: left;
+	input {outline: none;}
+	.sec-tit {
+		font-family: AspergitBold;
+		font-size: x-large;
+		cursor: pointer;
+	}
+
+	.errs-log {
+		margin: 0px 0px 20px 0px;
+		padding: 0px;
+		color: darkred;
+	}
+
+	.rw {
+		margin-top: 5px;
+		position: relative;
+		label.sim-lab {
+			position: absolute;
+			top: 1px;
+			left: 1px;
+			font-size: small;
+			color: #A9A9A9;
+		}
+		input {
+			.textbox;
+			height: 30px;
+			line-height: 40px;
+			font-family: "news cycle";
+			&[type="text"] {width: 400px;}
+		}
+	}
+	.es input {
+		width: 200px;
+		line-height: inherit;
+		text-align: center;
+		font-size: medium;
+		&:first-of-type {
+			border-right: none;
+		}
+	}
+	::-webkit-input-placeholder{
+		font-size: medium;
+		text-align: center;
+		line-height: inherit;
+	} ::-moz-placeholder {
+		font-size: medium;
+		text-align: center;
+		line-height: inherit;
+	}
+
+	.li input {
+		width: 400px;
+		line-height: inherit;
+	}
+	.ta {
+		position: relative;
+		label {
+			position: absolute;
+			top: 1px;
+			left: 1px;
+			font-family: sans-serif;
+			color: #A9A9A9;
+			background: white;
+		}
+		textarea {
+			width: 400px;
+			height: 100px;
+			box-sizing: border-box;
+			padding-top: 16px;
+			resize: none;
+			font-family: sans-serif;
+			.textbox;
+			outline: none;
+		}
+	}
+
+	.cfn input {
+		zoom: 120%;
+		vertical-align: middle;
+		box-shadow: none;
+	}
+
+	.subop {
+		font-size: medium;
+		background: white;
+		border: 1px solid black;
+		color: black;
+		outline: none;
+		transition: background, color 0.5s;
+	}
+	.subop:hover {
+		background: black;
+		color: white;
+	}
+	.subop:active {
+		background: red;
+	}
+	.hints {
+		font-size: small;
+		color: grey;
+		margin-top: 5px;
+		display: none;
+
+	}
+
+
+}

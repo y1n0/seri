@@ -1,0 +1,35 @@
+<div class="comm-sec">
+    <?php foreach ($comments as $comments) { ?>
+    <div class="comm-box">
+        <div class="relat"></div><!--
+    --><div class="comm-elements">
+            <div class="pic-d">
+                <a href="user?who=<?=$comments['name']?>" class="sim-link"><img class="comadav" src="<?=$comments['avatar']?>"></a>
+            </div><!--
+        --><div class="commenter-info-d">
+                <div class="comtr-name comtr-info"><span><span class="cmiv">username:</span> <span><a class="comadna sim-link" href="user?who=<?=$comments['name']?>" class="sim-link"><?=$comments['name']?></a></span></span></div>
+                <div class="comtr-ws comtr-info"><span><span class="cmiv">website:</span> <span><?=$comments['website']?></span></span></div>
+                <div class="comtr-comting comtr-info"><span><span class="cmiv">date:</span> <span class="comdaad"><?=$comments['date_add']?></span></span></div>
+            </div>
+            <div class="comm-body text-space">
+                <p><?=$comments['comment_txt']?></p>
+            </div>
+        </div>
+    </div>
+    <?php } ?>
+    <div class="likemoco" style="cursor: default; background: white; display: none">all comments loaded</div>
+    <div id="moco">load more comments</div>
+    <div class="comm-box">
+        <div class="add-comm">
+            <h3 class="sim-tit">add comment</h3>
+            <div class="callback-info">
+            </div>
+            <div class="lfor">
+                <form id="d-cs-f" method="post" action="system/set.php">
+                <textarea class="text-space" name="comm-text"></textarea>
+                <input type="submit" value="comment" name="addc" id="addc">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

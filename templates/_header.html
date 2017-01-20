@@ -1,0 +1,27 @@
+<header>
+	<div id="fst">
+		<div id="LD">
+			<a href="<?=$basic['url']?>" class="" title="home page"><img id="logo" src="<?=$basic['logo']?>" alt="<?=$basic['name']?>"></a>
+		</div><!--
+	--><span><?=$basic['caption']?></span><!--
+	--><div id="SrchD">
+			<input type="search" name="" />
+		</div><!--
+	--><div id="but">
+			<!-- button -->
+		</div>
+	</div>
+	<div id="lst">
+		<ul class="Ms eps">
+			<li><a href="episodes" class="sim-link">all episodes</a></li>
+		</ul>
+		<ul class="Ms opts">
+		<?@!$_SESSION['access']? print('
+			<li id="login" class="lr-btn sim-link">login</li>
+			<li id="register" class="lr-btn sim-link">register</li>
+		')
+		: print('<li>notifications</li><li class="lr-btn"><a href="user?who='.$_SESSION['username'].'" class="sim-link">'.$_SESSION['username'].'</a></li>');?>
+		</ul>
+	</div>
+</header>
+<?@!$_SESSION['access']? include 'login_wrapper.html': null; ?>

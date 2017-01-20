@@ -1,0 +1,66 @@
+<?$bbb='Lorem ipsum dolor sit amet, consectetur adipiscing elit. ';
+$err = 'error';?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=320">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title><?=$basic['name']?> Controle Panel</title>
+<link rel="stylesheet/less" type="text/css" href="files/cp-style.less" />
+<script type="text/javascript" src="/others/resources/less.min.js"></script>
+<script src="../../others/JavaScript/jQuery/jquery-1.11.2.js"></script>
+<script src="files/js.js"></script>
+<body>
+<?php include '_header.html';?>
+<div id="container">
+    <div id="cp-menu">
+        <ul>
+            <li><a href="#Basic" class="sim-link">Basic</a></li>
+            <li><a href="#Episodes" class="sim-link">Episodes</a></li>
+            <li><a href="#Others" class="sim-link">Others</a></li>
+        </ul>
+    </div>
+    <div id="cp-cont">
+        <div id="Basic" class="secs">
+            <h3 class="sec-tit">Basic Setting</h3>
+            <div class="sec-cont">
+                <div class="errs-log">
+                    
+                </div>
+                <form name="basset" method="POST" action="system/set.php" class="">
+                    <div class="uprw" ><div class="hints"><?=$bbb?></div><div class="rw "><label class="sim-lab" for="bas_name">website name : </label><input type="text" name="bas_name" id="bas_name" class="" value="<?=$basic['name']?>"></div></div>
+                    <div class="uprw" ><div class="hints"><?=$bbb?></div><div class="rw "><label class="sim-lab" for="bas_logo">logo url : </label><input type="url" name="bas_logo" id="bas_logo" class="" value="<?=$basic['logo']?>" style="width:400px;"></div></div>
+                    <div class="uprw" ><div class="hints"><?=$bbb?></div><div class="rw "><label class="sim-lab" for="bas_caption">caption text : </label><input type="text" name="bas_caption" id="bas_caption" class="" value="<?=$basic['caption']?>"></div></div>
+                    <div class="uprw" ><div class="hints"><?=$bbb?></div><div class="rw "><label class="sim-lab" for="bas_facebook">facebook page url : </label><input type="text" name="bas_facebook" id="bas_facebook" class="" value="<?=$basic['facebook']?>"></div></div>
+                    <div class="uprw" ><div class="hints"><?=$bbb?></div><div class="rw "><label class="sim-lab" for="bas_twitter">twitter page utl : </label><input type="text" name="bas_twitter" id="bas_twitter" class="" value="<?=$basic['twitter']?>"></div></div>
+                    <div class="uprw" ><div class="hints"><?=$bbb?></div><div class="rw ta"><label for="sidesc">site description:</label> <textarea id="sidesc">value="<?=$basic['about']?>"</textarea></div></div>
+                    <div class="uprw" ><div class="hints"><?=$bbb?></div><div class="rw "><label class="sim-lab" for="bas_colstxt">closing text : </label><input type="text" name="bas_colstxt" id="bas_colstxt" class="" value="<?=$basic['close_txt']?>"></div></div>
+                    <div class="uprw" ><div class="hints"><?=$bbb?></div><div class="rw cfn"><label>site closing : </label> <label><input type="radio" name="statu" value="1" class="" <?=$basic['statu'] ? 'checked' : null?> >on</label><label><input type="radio" name="statu" value="0" class="" <?=!$basic['statu'] ? 'checked' : null?> >off</label></div></div>
+                    <input type="submit" name="setop" class="subop">
+                </form>
+            </div>
+        </div>
+        <div id="Episodes" class="secs">
+            <h3 class="sec-tit">Add an Episode</h3>
+            <div class="sec-cont">
+                <form class="" action="system/set.php" method="post">
+                    <div class="rw es"><input type="number" name="epnumber" class="" placeholder="episodes n°"><input type="number" name="epseason" list="sailist" class="" placeholder="season"><datalist id="sailist"><?foreach($seasons as $season){ echo '<option value="'.$season['s'].'"/>';}?></datalist></div>
+                    <div class="rw li"><input type="text" name="epurl" placeholder="url" autocomplate="off"><span class="help"></span></div>
+                    <div class="rw ta"><label for="desc">description:</label> <textarea id="desc" name="desc"></textarea></div>
+                    <div class="rw cfn"><label>comment:</label> <label><input type="radio" name="cmtst" value="1" class="">on</label><label><input type="radio" name="cmtst" value="0" class="">off</label></div>
+                    <input type="submit" name="addep" class="subop">
+                </form>
+            </div>
+        </div>
+        <div id="Others" class="secs">
+            <h3 class="sec-tit">Others Setting</h3>
+            <div class="sec-cont">
+                <p>THIS SECTION IS EMPTY FOR THIS MOMENT, </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<?php include '_footer.html'; ?>
+</body>
+</html>

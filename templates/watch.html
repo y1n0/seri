@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=320">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title><?=$basic['name']?></title>
+<link rel="stylesheet" type="text/css" href="templates/style.css" media="all">
+<script src="../../others/JavaScript/jQuery/jquery-1.11.2.js"></script>
+<script src="files/js.js"></script>
+<body>
+<?php include '_header.html';?>
+<div id="container">
+	<div class="vid-box">
+			<!-- <video id="the-vid" src="/test_video.mp4" controls></video> -->
+            <?=$code?>
+        <h2 class="sim-tit vid-tit"><?=$series[0]['title']?> s<?=$watch[0]['season']?> ep<?=$watch[0]['number']?></h2>
+	</div>
+    <hr>
+    <div class="lev2 comments">
+        <h2 class="sim-tit">comments</h2>
+        <?php
+        if($watch[0]['comments'])
+            include 'comment.html';
+        else
+            echo '<p style="text-align: center; border: 1px solid; padding: 5px 0px; color: black; font-family: AspergitBold; font-weight: bold; font-zise: large;">'.$lang['comments_disabled'].'</p>';
+        ?>
+    </div>
+</div>
+<?php include '_footer.html'; ?>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<footer>
+	<div class="ft-lf">
+		<ul id="footer-menus">
+		<li><a href="." class="sim-link">HOME</a></li>
+		<li class="dlmt">·</li>
+		<li><a href="episodes" class="sim-link">EPISODES</a></li>
+		<li class="dlmt">·</li>
+		<li><a href="about" class="sim-link">ABOUT US</a></li>
+		<li class="dlmt">·</li>
+		<li><a href="content" class="sim-link">CONTACT</a></li>
+		<?$_SESSION['access']? print('<li class="dlmt">·</li>
+		<li><a href="logout" id="logout" class="sim-link">logout</a></li>'):null;
+		?>
+		</ul>
+	</div>
+	<div class="ft-rt">
+		<ul id="footer-icons">
+			<li>follow us: </li>
+			<li><a href="//www.facebook.com/<?=$basic['facebook']?>" class="sim-link" target="_blank"><span class="social-icon fb"></span></a></li>
+			<li>·</li>
+			<li><a href="//twitter.com/<?=$basic['twitter']?>" class="sim-link" target="_blank"><span class="social-icon tt"></span></a></li>
+		</ul>
+	</div>
+</footer>

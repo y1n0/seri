@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=320">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="templates/style.css" media="all">
+<script src="../../others/JavaScript/jQuery/jquery-1.11.2.js"></script>
+<script src="files/js.js"></script>
+<body>
+<?php include '_header.html';?>
+<div id="container">
+    <div id="user-prof">
+        <div class="prof-head">
+            <div class="prof-avatar-d">
+                <img src="<?!empty($_SESSION['access'])? print($user[0]['avatar']):print('files/logo.jpg')?>" class="prof-avatar">
+            </div>
+            <div class="naid">
+                <div class=""><?=$user[0]['name']?></div>
+                <div class="unsona">id: <span><?=$user[0]['id']?></span></div>
+                <div class="unsona">class: <span><?=$user[0]['class']?></span></div>
+            </div>
+        </div>
+        <div class="contct">
+            to contact me, use this <a href="<?=$user[0]['website']?>" class="sim-link">link</a>.
+        </div>
+    </div>
+</div>
+<?php include '_footer.html'; ?>
+</body>
+</html>

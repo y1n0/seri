@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=320">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title><?=$basic['name']?> - All Episodes</title>
+<link rel="stylesheet" type="text/css" href="templates/style.css" media="all">
+<style type="text/css">
+@font-face {
+  font-family: 'N42';
+  src: url('http://www.fontsaddict.com/fontface/number-42-bus-ndp.ttf');
+}
+
+</style>
+<script src="../../others/JavaScript/jQuery/jquery-1.11.2.js"></script>
+<script src="files/js.js"></script>
+<body>
+<?php include '_header.html'; ?>
+<div id="container">
+    <form method="GET" action="" id="eps-brws">
+    <h2 class="sim-tit all-eps">all season <select name="s"><?foreach($seasons as $season){ if($season['s']==$_GET['s']) $selected = "selected"; else $selected = null; echo '<option '.$selected.'>'.$season['s']."</option>";}?></select> 's episodes,<span id="sbr"><br></span> oredered by <select name="o"><option <?=$_GET['o']=='number'? 'selected': none?> >number</option><option <?=$_GET['o']=='views'? 'selected': none?> >views</option><option <?=$_GET['o']=='latest'? 'selected': none?> >latest</option></select><span id="eps-sons-submit">&#xe986;</span></h2>
+    </form>
+    <div class="episodes-container">
+      <?
+      echo $_GET['sgff'];
+      ?>
+        <table class="eps-table">
+            <tr class="arow">
+              <?php
+              $td=0;
+              foreach ($eps as $ep) {
+              $td++;
+                $thumbnail = url_treat($ep['url'], 'thumbnail');
+                echo '<td>
+                    <a href="watch?e='.$ep['id'].'"><div class="acel" style="background:url('.$thumbnail.') center no-repeat;"><div class="overl-layer"><span class="epid"><span class="epn"><span class="">ep</span><span class="">'.$ep['number'].'</span></span><span class="epson"><span class="">s</span><span class="">'.$ep['season'].'</span></span></span></div></div></a>
+                </td>';
+              if ($td==4) {
+                echo '</tr>
+                <tr clss="arow">';
+                $td=0;
+                }}?>
+           </tr>
+        </table>
+    </div>
+</div>
+<?php include '_footer.html'; ?>
+</body>
+</html>
